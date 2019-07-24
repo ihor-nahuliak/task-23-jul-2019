@@ -34,7 +34,15 @@ So we probably would need to make a new transaction state:
 A new transaction would contain just debit payment with partner_amount=NULL &
 credit payment with amount=NULL. On rate gotten we could fill that fields and
 move our transaction to the "rated" state.
+That could be done in a separate async task.
 
 But regarding to that task we can mock rates service and take needs rate
 immediately with any load, so we don't implement that "rated" state, we take
 the rate during transaction payments creation.
+
+### Rates rounding
+
+Rates providers return currency rate like 2 int values,
+dividing which we can take the rate value.
+
+To not complicate, we store rate as simple decimal value.

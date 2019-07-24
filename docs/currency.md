@@ -6,10 +6,10 @@ Currency
 
 ### Coins
 
-**All currency units contains 100 coins.**
+**All currency units contain 100 coins.**
 Regarding to the task we operate with USD, EUR, CAD, CNY.
 All that currency have 100 coins in one banknote unit.
-There are also some coins that have 1000 coins in one banknote unit like rupees.
+There are also some coins that have 1000 coins in one banknote unit like Rupees, etc.
 But we have to not complicate the task.
 
 **We store all amounts in coins as int values.**

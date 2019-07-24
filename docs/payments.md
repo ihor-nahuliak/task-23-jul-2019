@@ -1,9 +1,10 @@
+Billing documentation
+=====================
+
 Payments
-========
+--------
 
-
-One currency operations
------------------------
+### One currency operations
 
 Normally banks require wallets currency matching.
 
@@ -13,8 +14,7 @@ from her USD wallet to his USD wallet:
 ![currency matches](img/usd-2-usd.png "currency matches")
 
 
-Cross currency operations
--------------------------
+### Cross currency operations
 
 Sometime the conterparty doesn't have any wallet in the same currency.
 
@@ -36,8 +36,7 @@ In our task we should complicate nothing.
 So we will just store currency rate at the moment of transaction.
 
 
-Payments table
---------------
+### Payments table
 
 **tbl_payments**
 

@@ -58,12 +58,14 @@ So we will just store currency rate at the moment of transaction.
 
 When the client pays (debit payment):
 * amount < 0
-* partner_amount > 0
+* partner_amount > 0,
+  partner_amount = abs(amount) * exchange_rate
 * exchange_rate = rate of client wallet currency to partner wallet currency
   (client sells his currency to buy partner's currency and send him it)
 
 When the client receives money (credit payment):
-* amount > 0
+* amount > 0,
+  amount = abs(partner_amount) * exchange_rate
 * partner_amount < 0
 * exchange_rate = rate of partner wallet currency to client wallet currency
   (partner sells his currency to buy client's currency and send him it)

@@ -13,7 +13,6 @@ Both have USD wallets so, Alice can just simple send money
 from her USD wallet to his USD wallet:
 ![currency matches](img/usd-2-usd.png "currency matches")
 
-
 ### Cross currency operations
 
 Sometime the conterparty doesn't have any wallet in the same currency.
@@ -35,7 +34,6 @@ Normally banks proposes to do something like that:
 In our task we should complicate nothing.
 So we will just store currency rate at the moment of transaction.
 
-
 ### Payments table
 
 **tbl_payments**
@@ -46,8 +44,8 @@ So we will just store currency rate at the moment of transaction.
 | transaction_id           | uuid     |                                                    |
 | created_at               | datetime | when the payment (and transaction) were created    |
 | updated_at               | datetime | when the payment was modified last time            |
-| payment_type             | int      | recharge, withdraw, transfer                       |
-| payment_status           | int      | transaction can be done when all its payments done |
+| transaction_type         | int      | transfer, recharge, withdraw, correction           |
+| transaction_status       | int      | created, rejected, accepted, done                  |
 | client_id                | int      | this field is used to split data by shards         |
 | wallet_id                | int      | client wallet                                      |
 | currency                 | int      | client wallet currency                             |
@@ -56,7 +54,7 @@ So we will just store currency rate at the moment of transaction.
 | partner_wallet_id        | int      | partner wallet                                     |
 | partner_currency         | int      | partner wallet currency                            |
 | partner_amount           | int      | in partner wallet currency                         |
-| exchange_rate            | int      | exchange rate: debit currency to credit currency   |
+| exchange_rate            | decimal  | exchange rate: debit currency to credit currency   |
 
 When the client pays (debit payment):
 * amount < 0

@@ -1,4 +1,5 @@
 Billing documentation
 ---------------------
 
-1. [Payments](payments.md "Payments")
+1. [Currency](currency.md "Currency")
+2. [Payments](payments.md "Payments")

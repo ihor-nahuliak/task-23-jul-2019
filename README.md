@@ -2,4 +2,5 @@
 simple billing task
 
 ### [Billing documentation](docs/README.md "Billing documentation")
-1. [**Payments**](docs/payments.md "Payments")
+1. [**Currency**](docs/currency.md "Currency")
+2. [**Payments**](docs/payments.md "Payments")

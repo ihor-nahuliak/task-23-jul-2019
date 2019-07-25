@@ -4,6 +4,8 @@
 
 Simple billing task.
 
+[Read the task description.](docs/challenge.md "The task description.")
+
 ### [Billing documentation](docs/README.md "Billing documentation")
 1. [**Clients**](docs/clients.md "Clients")
 2. [**Currency**](docs/currency.md "Currency")

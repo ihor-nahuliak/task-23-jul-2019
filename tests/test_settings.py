@@ -11,6 +11,9 @@ class TestCase(unittest.TestCase):
     def test_root_path_is_app_dir(self):
         self.assertTrue(settings.ROOT_PATH.endswith('/app'))
 
+    def test_templates_path_is_in_app_dir(self):
+        self.assertTrue(settings.TEMPLATES_PATH.endswith('/app/templates'))
+
     def test_postgresql_url(self):
         self.assertEqual(
             settings.POSTGRESQL_URL,

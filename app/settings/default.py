@@ -28,3 +28,8 @@ class DefaultConfig:
     def ROOT_PATH(self):
         path = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
         return path
+
+    @property
+    def TEMPLATES_PATH(self):
+        path = os.path.join(self.ROOT_PATH, 'templates')
+        return path

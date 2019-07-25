@@ -35,12 +35,7 @@ install-env-python:
 	fi;
 
 env-activate:
-	. $(ENV)/activate ;\
-	if [ $$? -eq 0 ]; then \
-		echo -e "${STATUS_OK}" ;\
-	else \
-		echo -e "${STATUS_ERROR}" ;\
-	fi;
+	. $(ENV)/activate
 
 install-python-libs:
 	$(PIP) install -U pip ;\
@@ -53,8 +48,40 @@ install-python-libs:
 
 install: install-env-python env-activate install-python-libs
 
+test-init-migrations:
+	@SETTINGS="app.settings.testing" \
+	$(PYTHON) $(DIR)/app/migrations/manage.py version_control >>/dev/null 2>&1 ;\
+	echo 0
 
-test:
+test-migrations:
+	SETTINGS="app.settings.testing" \
+	$(PYTHON) $(DIR)/app/migrations/manage.py test ;\
+	if [ $$? -eq 0 ]; then \
+		echo -e "${STATUS_OK}" ;\
+	else \
+		echo -e "${STATUS_ERROR}" ;\
+	fi;
+
+test-upgrade-migrations:
+	SETTINGS="app.settings.testing" \
+	$(PYTHON) $(DIR)/app/migrations/manage.py upgrade ;\
+	if [ $$? -eq 0 ]; then \
+		echo -e "${STATUS_OK}" ;\
+	else \
+		echo -e "${STATUS_ERROR}" ;\
+	fi;
+
+test-downgrade-migrations:
+	SETTINGS="app.settings.testing" \
+	$(PYTHON) $(DIR)/app/migrations/manage.py downgrade 0 ;\
+	if [ $$? -eq 0 ]; then \
+		echo -e "${STATUS_OK}" ;\
+	else \
+		echo -e "${STATUS_ERROR}" ;\
+	fi;
+
+test-python-code:
+	SETTINGS="app.settings.testing" \
 	$(DIR)/env/bin/py.test \
 	-v \
 	-q --flakes \
@@ -63,3 +90,5 @@ test:
 	--cov-report=html \
 	--doctest-modules \
 	tests
+
+test: test-init-migrations test-migrations test-upgrade-migrations test-python-code test-downgrade-migrations

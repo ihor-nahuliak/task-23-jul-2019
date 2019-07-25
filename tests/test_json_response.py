@@ -67,3 +67,7 @@ class TestCase(unittest.TestCase):
             status=200,
             headers={'My-Header': 'test', 'Content-Encoding': 'gzip'},
             content_type='application/json')
+
+
+if __name__ == '__main__':
+    unittest.main()

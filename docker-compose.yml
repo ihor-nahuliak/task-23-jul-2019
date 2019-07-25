@@ -1,0 +1,31 @@
+version: '3.6'
+
+services:
+
+  task23jul2019_postgresql:
+    image: 'postgres:10'
+    environment:
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD="
+      - "POSTGRES_DB=task23jul2019"
+    expose:
+      - '5432'
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'postgresqldata:/var/lib/postgresql/data'
+
+  task23jul2019_rest_api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: []
+    environment:
+      - "SETTINGS=product"
+    expose:
+      - '8080'
+    ports:
+      - '8080:8080'
+
+volumes:
+  postgresqldata:

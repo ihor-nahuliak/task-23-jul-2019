@@ -16,3 +16,5 @@ Clients
 | name                     | varchar  | full name                                                  |
 | country                  | varchar  | it could be also country code or fk to the countries table |
 | city                     | varchar  | it could be also a fk to the cities table                  |
+
+We don't make additional geographical tables to store countries & cities to not complicate that.

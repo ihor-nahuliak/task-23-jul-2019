@@ -11,13 +11,18 @@ addons:
       - postgresql-client-10
 env:
   global:
+    - SETTINGS="app.settings.testing"
+    - PGHOST=localhost
     - PGPORT=5432
 services:
   - postgresql
 install:
   - pip install -r ./.requirements/testing.txt
 before_script:
-  - psql -c 'create database task23jul2019_test;' -U postgres
+  - psql -c 'create database task23jul2019_testing;' -U postgres
+  - python app/migrations/manage.py version_control
+  - python app/migrations/manage.py version
+  - python app/migrations/manage.py upgrade
 script:
   - py.test -v -q --flakes --cov-config=.coveragerc --cov=app --cov-report=term-missing --doctest-modules tests
 after_success:

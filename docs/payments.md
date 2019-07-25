@@ -48,11 +48,11 @@ So we will just store currency rate at the moment of transaction.
 | transaction_status       | int      | created, rejected, accepted, done                  |
 | client_id                | int      | this field is used to split data by shards         |
 | wallet_id                | int      | client wallet                                      |
-| currency                 | int      | client wallet currency                             |
+| currency                 | varchar  | client wallet currency                             |
 | amount                   | int      | in client wallet currency                          |
 | partner_client_id        | int      | counter party                                      |
 | partner_wallet_id        | int      | partner wallet                                     |
-| partner_currency         | int      | partner wallet currency                            |
+| partner_currency         | varchar  | partner wallet currency                            |
 | partner_amount           | int      | in partner wallet currency                         |
 | exchange_rate            | decimal  | exchange rate: debit currency to credit currency   |
 

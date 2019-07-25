@@ -50,5 +50,7 @@ by their average left time to be marked as accepted.
 | created_at               | datetime | when the payment (and transaction) were created    |
 | updated_at               | datetime | when the payment was modified last time            |
 | client_id                | int      | this field is used to split data by shards         |
-| currency                 | int      | client wallet currency                             |
+| currency                 | varchar  | client wallet currency iso-4217 string code        |
 | collected_balance        | int      | processed "collected" part (see above)             |
+
+We could use iso-4217 numeric code, but we use string value to simplify all.

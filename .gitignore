@@ -1,6 +1,7 @@
 # Temporary
 .*
 !.gitignore
+!.requirements
 !.coveragerc
 !.coveralls.yml
 !.travis.yml

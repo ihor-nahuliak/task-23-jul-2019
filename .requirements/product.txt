@@ -1,0 +1,2 @@
+# product env packages:
+psycopg2-binary==2.8.3

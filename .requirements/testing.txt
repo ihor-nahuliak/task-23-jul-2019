@@ -1,7 +1,9 @@
 -r ./product.txt
 
 # testing env packages:
+asynctest==0.13.0
 pytest==5.0.1
+pytest-aiohttp==0.3.0
 pytest-flakes==4.0.0
 pytest-mock==1.10.4
 pytest-cov==2.7.1

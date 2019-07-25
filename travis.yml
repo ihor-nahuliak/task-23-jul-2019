@@ -3,22 +3,8 @@ language: python
 python:
   - "3.6"
   - "3.6-dev" # 3.6 development branch
-addons:
-  postgresql: "10"
-  apt:
-    packages:
-      - postgresql-10
-      - postgresql-client-10
-env:
-  global:
-    - PGPORT=5432
-    - SETTINGS=testing
-services:
-  - postgresql
 install:
   - pip install -r requirements.txt
-before_script:
-  - psql -c 'create database task23jul2019_test;' -U postgres
 script:
   - py.test -v -q --flakes --cov-config=.coveragerc --cov=app --cov-report=term-missing --doctest-modules tests
 after_success:

@@ -1,5 +1,8 @@
 # task-23-jul-2019
-simple billing task
+[![Build Status](https://travis-ci.org/ihor-nahuliak/task-23-jul-2019.svg?branch=master)](https://travis-ci.org/ihor-nahuliak/task-23-jul-2019)
+[![Coverage Status](https://coveralls.io/repos/github/ihor-nahuliak/task-23-jul-2019/badge.svg)](https://coveralls.io/github/ihor-nahuliak/task-23-jul-2019)
+
+Simple billing task.
 
 ### [Billing documentation](docs/README.md "Billing documentation")
 1. [**Clients**](docs/clients.md "Clients")

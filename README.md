@@ -2,7 +2,8 @@
 simple billing task
 
 ### [Billing documentation](docs/README.md "Billing documentation")
-1. [**Currency**](docs/currency.md "Currency")
-2. [**Wallets**](docs/wallets.md "Wallets")
-3. [**Transactions**](docs/transactions.md "Transactions")
-4. [**Payments**](docs/payments.md "Payments")
+1. [**Clients**](docs/clients.md "Clients")
+2. [**Currency**](docs/currency.md "Currency")
+3. [**Wallets**](docs/wallets.md "Wallets")
+4. [**Transactions**](docs/transactions.md "Transactions")
+5. [**Payments**](docs/payments.md "Payments")

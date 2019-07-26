@@ -44,8 +44,8 @@ So we will just store currency rate at the moment of transaction.
 | transaction_id           | uuid     |                                                    |
 | created_at               | datetime | when the payment (and transaction) were created    |
 | updated_at               | datetime | when the payment was modified last time            |
-| transaction_type         | int      | transfer, recharge, withdraw, correction           |
-| transaction_status       | int      | created, rejected, accepted, done                  |
+| transaction_type         | varchar  | transfer, recharge, withdraw, correction           |
+| transaction_status       | varchar  | created, rejected, accepted, done                  |
 | client_id                | int      | this field is used to split data by shards         |
 | wallet_id                | int      | client wallet                                      |
 | currency                 | varchar  | client wallet currency                             |
@@ -55,6 +55,9 @@ So we will just store currency rate at the moment of transaction.
 | partner_currency         | varchar  | partner wallet currency                            |
 | partner_amount           | int      | in partner wallet currency                         |
 | exchange_rate            | decimal  | exchange rate: debit currency to credit currency   |
+
+
+transaction_type, transaction_status could be int field, but to simplify we use str.
 
 When the client pays (debit payment):
 * amount < 0

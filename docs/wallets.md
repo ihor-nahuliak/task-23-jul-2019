@@ -46,10 +46,10 @@ by their average left time to be marked as accepted.
 
 | field                    | type     | comment                                            |
 |:-------------------------|:--------:|:---------------------------------------------------|
-| id                       | int      |                                                    |
+| id                       | uuid     |                                                    |
 | created_at               | datetime | when the payment (and transaction) were created    |
 | updated_at               | datetime | when the payment was modified last time            |
-| client_id                | int      | this field is used to split data by shards         |
+| client_id                | uuid     | this field is used to split data by shards         |
 | currency                 | varchar  | client wallet currency iso-4217 string code        |
 | collected_balance        | int      | processed "collected" part (see above)             |
 

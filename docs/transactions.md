@@ -60,3 +60,6 @@ See also: [wallets](wallets.md "wallets"), [payments](payments.md "payments").
 | updated_at               | datetime |                                                    |
 | transaction_type         | int      | transfer, recharge, withdraw, correction           |
 | transaction_status       | int      | created, rejected, accepted, done                  |
+
+We don't really need that table in this task, actually, because we already store that data in payments table.
+If you wanna make horizontal sharding it's also not so useful, because transactions table is one of the biggest table.

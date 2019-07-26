@@ -40,18 +40,18 @@ So we will just store currency rate at the moment of transaction.
 
 | field                    | type     | comment                                            |
 |:-------------------------|:--------:|:---------------------------------------------------|
-| id                       | int      |                                                    |
+| id                       | uuid     |                                                    |
 | transaction_id           | uuid     |                                                    |
 | created_at               | datetime | when the payment (and transaction) were created    |
 | updated_at               | datetime | when the payment was modified last time            |
 | transaction_type         | varchar  | transfer, recharge, withdraw, correction           |
 | transaction_status       | varchar  | created, rejected, accepted, done                  |
-| client_id                | int      | this field is used to split data by shards         |
-| wallet_id                | int      | client wallet                                      |
+| client_id                | uuid     | this field is used to split data by shards         |
+| wallet_id                | uuid     | client wallet                                      |
 | currency                 | varchar  | client wallet currency                             |
 | amount                   | int      | in client wallet currency                          |
-| partner_client_id        | int      | counter party                                      |
-| partner_wallet_id        | int      | partner wallet                                     |
+| partner_client_id        | uuid     | counter party                                      |
+| partner_wallet_id        | uuid     | partner wallet                                     |
 | partner_currency         | varchar  | partner wallet currency                            |
 | partner_amount           | int      | in partner wallet currency                         |
 | exchange_rate            | decimal  | exchange rate: debit currency to credit currency   |

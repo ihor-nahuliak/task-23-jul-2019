@@ -10,7 +10,7 @@ Clients
 
 | field                    | type     | comment                                                    |
 |:-------------------------|:--------:|:-----------------------------------------------------------|
-| id                       | int      | this field we use to split data by shards                  |
+| id                       | uuid     | this field we use to split data by shards                  |
 | created_at               | datetime | when the client was registered                             |
 | updated_at               | datetime | when the client profile was modified last time             |
 | name                     | varchar  | full name                                                  |

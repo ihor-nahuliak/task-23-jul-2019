@@ -11,7 +11,7 @@ metadata = sa.MetaData()
 tbl_clients = sa.Table(
     'billing__clients', metadata,
 
-    sa.Column('id', sa.Integer, primary_key=True),
+    sa.Column('id', sa_psql.UUID(), primary_key=True),
     sa.Column('is_enabled', sa.Boolean(), default=True, index=True),
     sa.Column('created_at', sa.DateTime(), default=dt.utcnow, index=True),
     sa.Column('updated_at', sa.DateTime(), onupdate=dt.utcnow, index=True),
@@ -23,12 +23,11 @@ tbl_clients = sa.Table(
 tbl_wallets = sa.Table(
     'billing__wallets', metadata,
 
-    sa.Column('id', sa.Integer, primary_key=True),
+    sa.Column('id', sa_psql.UUID(), primary_key=True),
     sa.Column('is_enabled', sa.Boolean(), default=True, index=True),
     sa.Column('created_at', sa.DateTime(), default=dt.utcnow, index=True),
     sa.Column('updated_at', sa.DateTime(), onupdate=dt.utcnow, index=True),
-    sa.Column('client_id',
-              sa.ForeignKey(tbl_clients.c.id, ondelete='CASCADE')),
+    sa.Column('client_id', sa.ForeignKey(tbl_clients.c.id)),
     sa.Column('currency', sa.String(length=3), index=True,
               comment='iso-4217 string code'),
     sa.Column('collected_balance', sa.Integer(), default=0,
@@ -45,7 +44,7 @@ tbl_wallets = sa.Table(
 tbl_payments = sa.Table(
     'billing__payments', metadata,
 
-    sa.Column('id', sa.Integer, primary_key=True),
+    sa.Column('id', sa_psql.UUID(), primary_key=True),
     sa.Column('is_enabled', sa.Boolean(), default=True, index=True),
     sa.Column('created_at', sa.DateTime(), default=dt.utcnow, index=True),
     sa.Column('updated_at', sa.DateTime(), onupdate=dt.utcnow, index=True),
@@ -62,8 +61,8 @@ tbl_payments = sa.Table(
               comment='in cents, is negative for debit payments. '
                       'Payment is debit when client_id pays money. '
                       'Payment is credit when client_id takes money.'),
-    sa.Column('partner_client_id', sa.Integer(), index=True),
-    sa.Column('partner_wallet_id', sa.Integer(), index=True),
+    sa.Column('partner_client_id', sa_psql.UUID(), index=True),
+    sa.Column('partner_wallet_id', sa_psql.UUID(), index=True),
     sa.Column('partner_currency', sa.String(length=3), index=True),
     sa.Column('partner_amount', sa.Integer(), index=True,
               comment='in cents, is negative for credit payments. '
